@@ -1,6 +1,11 @@
+import LaunchContainer from "./containers/LaunchContainer";
+
 const App = () => {
   return (
-    <h1>Hello, World!</h1>
+    <> 
+      <h1>SpaceX Launches</h1>
+      <LaunchContainer/>
+    </>
   )
 }
 
