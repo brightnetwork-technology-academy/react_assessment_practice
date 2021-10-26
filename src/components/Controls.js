@@ -11,11 +11,15 @@ class Controls extends React.Component{
     }
 
     nextLaunch = () => {
-        this.props.updateCurrentLaunch(this.props.currentLaunch + 1);
+        if (this.props.currentLaunch < this.props.maxLaunchValue) {
+            this.props.updateCurrentLaunch(this.props.currentLaunch + 1);
+        }
     }
 
     previousLaunch = () => {
-        this.props.updateCurrentLaunch(this.props.currentLaunch - 1);
+        if (this.props.currentLaunch > 1) {
+            this.props.updateCurrentLaunch(this.props.currentLaunch - 1);
+        }
     }
 
     firstLaunch = () => {
@@ -23,15 +27,16 @@ class Controls extends React.Component{
     }
 
     lastLaunch = () => {
-        this.props.updateCurrentLaunch(999);
+        this.props.updateCurrentLaunch(this.props.maxLaunchValue);
     }
 
 
     updateInputLaunch = (evt) => {
-        this.setState({inputLaunch: evt.target.value});
+        this.setState({inputLaunch: parseInt(evt.target.value)});
     }
 
     handleSpecificLaunchChoice = (evt) => {
+        evt.preventDefault();
         this.props.updateCurrentLaunch(this.state.inputLaunch);
     }
 
@@ -50,7 +55,7 @@ class Controls extends React.Component{
                         name="input-launch" 
                         value={this.state.inputLaunch}
                         min={1}
-                        max={999}
+                        max={this.props.maxLaunchValue}
                         onChange={this.updateInputLaunch}
                     />
                     <input type="submit" value="Submit"/>

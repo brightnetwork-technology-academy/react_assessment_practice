@@ -14,7 +14,7 @@ class LaunchContainer extends React.Component{
 
     componentDidMount(){
         fetch("https://api.spacexdata.com/v4/launches")
-            .then(response => response.json)
+            .then(response => response.json())
             .then(data => this.setState({launches: data}));
     }
 
@@ -28,8 +28,12 @@ class LaunchContainer extends React.Component{
                 <Controls 
                     currentLaunch={this.state.currentLaunch} 
                     updateCurrentLaunch={this.updateCurrentLaunch}
+                    maxLaunchValue={this.state.launches.length}
                 />
-                <LaunchDetails launch={this.state.launches[this.state.currentLaunch]}/>
+                {this.state.launches.length === 0 ? 
+                    <p>Loading...</p> :
+                    <LaunchDetails launch={this.state.launches[this.state.currentLaunch -1]}/>
+                }
             </>
         )
     }
