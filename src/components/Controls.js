@@ -37,7 +37,7 @@ class Controls extends React.Component{
 
     render(){
         return(
-            <>
+            <div className="controls">
                 <button onClick={this.firstLaunch}>First Launch</button>
                 <button onClick={this.previousLaunch}>Previous Launch</button>
                 <button onClick={this.nextLaunch}>Next Launch</button>
@@ -55,7 +55,7 @@ class Controls extends React.Component{
                     />
                     <input type="submit" value="Submit"/>
                 </form>
-            </>
+            </div>
         )
     }
 
