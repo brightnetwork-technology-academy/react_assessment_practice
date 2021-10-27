@@ -19,7 +19,7 @@ class LaunchContainer extends React.Component{
     }
 
     updateCurrentLaunch = (newFlightNumber) => {
-        this.setState({currentLaunch: newFlightNumber});
+        this.state.currentLaunch= newFlightNumber;
     }
 
     render(){
