@@ -9,6 +9,7 @@ When working properly the app should:
 - Allow the user to skip to the first/last launch
 - Allow the user to enter a specific launch to view
 - Only display a launch if a valid launch number is provided
+- Open a link to the Wikipedia page in a new tab when the link is clicked
 
 There are **ten** bugs in the code - some are more obvious than others.
 
